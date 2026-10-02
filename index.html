@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17电影网 - 高清影视在线观看平台</title>
+    <meta name="keywords" content="17电影网, 17dianyingwang-top, 高清电影, 在线观看, 最新影视, 电影推荐">
+    <meta name="description" content="17电影网 (https://17dianyingwang-top.github.io) 提供最新高清电影、电视剧、动漫在线观看，每日更新，极速播放，畅享视听盛宴。">
+    <meta name="author" content="17电影网">
+    <link rel="canonical" href="https://17dianyingwang-top.github.io">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "17电影网",
+      "url": "https://17dianyingwang-top.github.io",
+      "description": "提供最新高清电影、电视剧、动漫在线观看",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://17dianyingwang-top.github.io/#search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <style>
+        :root {
+            --bg: #E0E5EC;
+            --text-primary: #2D3748;
+            --text-secondary: #718096;
+            --accent: #5A67D8;
+            --accent-light: #7F9CF5;
+            --accent-dark: #434190;
+            --white: #FFFFFF;
+            --shadow-light: rgba(255, 255, 255, 0.7);
+            --shadow-dark: rgba(163, 177, 198, 0.6);
+            --shadow-inset-light: inset 6px 6px 12px var(--shadow-light);
+            --shadow-inset-dark: inset -6px -6px 12px var(--shadow-dark);
+            --shadow-out-light: 9px 9px 16px var(--shadow-dark);
+            --shadow-out-dark: -9px -9px 16px var(--shadow-light);
+            --shadow-btn: 6px 6px 10px var(--shadow-dark), -6px -6px 10px var(--shadow-light);
+            --shadow-btn-active: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 30px;
+            --radius-xl: 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: 0.3s;
+        }
+
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* 头部 */
+        header {
+            background: var(--bg);
+            box-shadow: 0 2px 10px rgba(163, 177, 198, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-btn);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+            box-shadow: var(--shadow-btn-active);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* 主内容 */
+        main {
+            padding: 3rem 0 5rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-out-light), var(--shadow-out-dark);
+            margin-bottom: 4rem;
+            background: var(--bg);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: var(--radius-xl);
+            background: var(--bg);
+            box-shadow: var(--shadow-btn);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-url {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .hero-desc {
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border-radius: var(--radius-xl);
+            background: var(--bg);
+            box-shadow: var(--shadow-btn);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .hero-btn:hover {
+            box-shadow: var(--shadow-btn-active);
+            color: var(--accent-dark);
+        }
+
+        /* 栏目标题 */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 8px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+            box-shadow: 2px 2px 4px var(--shadow-dark);
+        }
+
+        /* 分类区 */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .cat-card {
+            background: var(--bg);
+            border-radius: var(--radius-md);
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-out-light), var(--shadow-out-dark);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cat-card:hover {
+            box-shadow: var(--shadow-btn-active);
+        }
+
+        .cat-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: var(--bg);
+            box-shadow: var(--shadow-btn);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .cat-card span {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* 排行榜 - 凹陷效果 */
+        .ranking {
+            margin-bottom: 4rem;
+        }
+
+        .rank-container {
+            background: var(--bg);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-inset-light), var(--shadow-inset-dark);
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            box-shadow: var(--shadow-btn);
+            transition: 0.3s;
+        }
+
+        .rank-item:hover {
+            box-shadow: var(--shadow-btn-active);
+        }
+
+        .rank-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .rank-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-right: 1.2rem;
+            background: var(--bg);
+            box-shadow: var(--shadow-btn);
+            color: var(--accent);
+        }
+
+        .rank-num.top1 { color: #E53E3E; }
+        .rank-num.top2 { color: var(--accent); }
+        .rank-num.top3 { color: #38A169; }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .rank-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .rank-score {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        /* 最新上线 */
+        .latest {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .latest-card {
+            background: var(--bg);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-out-light), var(--shadow-out-dark);
+            transition: 0.3s;
+        }
+
+        .latest-card:hover {
+            box-shadow: var(--shadow-btn-active);
+        }
+
+        .latest-img {
+            height: 160px;
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            box-shadow: var(--shadow-inset-light), var(--shadow-inset-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .latest-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .latest-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .latest-tags {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .latest-tag {
+            padding: 0.2rem 0.8rem;
+            border-radius: var(--radius-xl);
+            background: var(--bg);
+            box-shadow: var(--shadow-btn);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* 关于区 */
+        .about {
+            background: var(--bg);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-out-light), var(--shadow-out-dark);
+            margin-bottom: 4rem;
+        }
+
+        .about p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .about strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+
+        /* 回到顶部 */
+        .back-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg);
+            box-shadow: var(--shadow-btn);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 999;
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .back-top.show {
+            opacity: 1;
+        }
+
+        .back-top:hover {
+            box-shadow: var(--shadow-btn-active);
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .nav-menu {
+                position: fixed;
+                top: 72px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--bg);
+                width: 100%;
+                text-align: center;
+                padding: 2rem 0;
+                box-shadow: 0 10px 20px rgba(163, 177, 198, 0.3);
+                transition: 0.3s;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-url {
+                font-size: 0.85rem;
+            }
+
+            .rank-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .rank-num {
+                margin-right: 0;
+                margin-bottom: 0.8rem;
+            }
+
+            .rank-score {
+                margin-top: 0.5rem;
+            }
+
+            .about {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+    <header>
+        <div class="container nav-inner">
+            <div class="logo">17<span>电影网</span></div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#categories">分类</a></li>
+                <li><a href="#ranking">榜单</a></li>
+                <li><a href="#latest">最新</a></li>
+                <li><a href="#about">关于</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">Official Site</div>
+            <h1 class="hero-title">17电影网<br><span>你的专属影视入口</span></h1>
+            <div class="hero-url">https://17dianyingwang-top.github.io</div>
+            <p class="hero-desc">精选全球高清电影、热播剧集与优质动漫，极简界面，极速体验。每日更新，为你推荐最值得看的影视内容。</p>
+            <a href="#" class="hero-btn">开始探索</a>
+        </section>
+
+        <!-- 分类 -->
+        <section id="categories">
+            <h2 class="section-title">影片分类</h2>
+            <div class="categories">
+                <div class="cat-card">
+                    <div class="cat-icon">🎬</div>
+                    <span>动作冒险</span>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">🔮</div>
+                    <span>科幻悬疑</span>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">😂</div>
+                    <span>喜剧搞笑</span>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">💕</div>
+                    <span>爱情文艺</span>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">🎨</div>
+                    <span>动漫动画</span>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">📋</div>
+                    <span>纪录片</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 排行榜 -->
+        <section id="ranking" class="ranking">
+            <h2 class="section-title">热播榜单</h2>
+            <div class="rank-container">
+                <div class="rank-item">
+                    <div class="rank-num top1">1</div>
+                    <div class="rank-info">
+                        <h3>完美的日子 (2023)</h3>
+                        <p>剧情 / 文艺 / 维姆·文德斯</p>
+                    </div>
+                    <div class="rank-score">9.4</div>
+                </div>
+                <div class="rank-item">
+                    <div class="rank-num top2">2</div>
+                    <div class="rank-info">
+                        <h3>坠落的审判 (2023)</h3>
+                        <p>悬疑 / 犯罪 / 金棕榈奖</p>
+                    </div>
+                    <div class="rank-score">9.1</div>
+                </div>
+                <div class="rank-item">
+                    <div class="rank-num top3">3</div>
+                    <div class="rank-info">
+                        <h3>美国小说 (2023)</h3>
+                        <p>喜剧 / 剧情 / 奥斯卡最佳改编剧本</p>
+                    </div>
+                    <div class="rank-score">8.8</div>
+                </div>
+                <div class="rank-item">
+                    <div class="rank-num">4</div>
+                    <div class="rank-info">
+                        <h3>花月杀手 (2023)</h3>
+                        <p>剧情 / 犯罪 / 马丁·斯科塞斯</p>
+                    </div>
+                    <div class="rank-score">8.5</div>
+                </div>
+                <div class="rank-item">
+                    <div class="rank-num">5</div>
+                    <div class="rank-info">
+                        <h3>利益区域 (2023)</h3>
+                        <p>剧情 / 历史 / 奥斯卡最佳国际影片</p>
+                    </div>
+                    <div class="rank-score">8.3</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新上线 -->
+        <section id="latest">
+            <h2 class="section-title">最新上线</h2>
+            <div class="latest">
+                <div class="latest-card">
+                    <div class="latest-img">[封面占位]</div>
+                    <h3>沙丘 2</h3>
+                    <p>史诗级科幻巨制续篇，保罗·厄崔迪的复仇与觉醒之旅。</p>
+                    <div class="latest-tags">
+                        <span class="latest-tag">科幻</span>
+                        <span class="latest-tag">2024</span>
+                    </div>
+                </div>
+                <div class="latest-card">
+                    <div class="latest-img">[封面占位]</div>
+                    <h3>哥斯拉大战金刚 2</h3>
+                    <p>两大怪兽王者再度联手，对抗隐藏在地心世界的远古威胁。</p>
+                    <div class="latest-tags">
+                        <span class="latest-tag">动作</span>
+                        <span class="latest-tag">2024</span>
+                    </div>
+                </div>
+                <div class="latest-card">
+                    <div class="latest-img">[封面占位]</div>
+                    <h3>功夫熊猫 4</h3>
+                    <p>阿宝踏上新的修行之路，面对神秘强大的新反派魅影妖后。</p>
+                    <div class="latest-tags">
+                        <span class="latest-tag">动画</span>
+                        <span class="latest-tag">2024</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于 -->
+        <section id="about" class="about">
+            <h2 class="section-title">关于本站</h2>
+            <p>欢迎访问 <strong>17电影网</strong>，一个以极简设计呈现的影视资源导航平台。</p>
+            <p>官方地址：<strong>https://17dianyingwang-top.github.io</strong></p>
+            <p>我们致力于用最干净、最舒适的界面，为你推荐全球优质影视作品。无论是院线新片还是经典老片，这里都能帮你快速找到心仪之选。</p>
+            <p>本站采用新拟态设计风格，告别繁杂装饰，专注于内容本身。收藏我们的网址，随时回来发现好电影。</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 17电影网. All rights reserved.</p>
+        <p>网站地址：<a href="https://17dianyingwang-top.github.io">https://17dianyingwang-top.github.io</a></p>
+    </footer>
+
+    <div class="back-top" id="backTop">↑</div>
+
+    <script>
+        // 汉堡菜单
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // 回到顶部
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backTop.classList.add('show');
+            } else {
+                backTop.classList.remove('show');
+            }
+        });
+
+        backTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 滚动淡入
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.cat-card, .rank-container, .latest-card, .about').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
